@@ -1,0 +1,8 @@
+#!/bin/bash
+
+GITHOST=github.com
+GITHUBUSER=aidun
+REPONAME=$(cat ./.git/config | awk '/projectname/ {print($3)}')
+BRANCH=$(cat ./.git/config | awk '/merge/ {print($3)}')
+
+git push https://${GITHUBUSER}@{$GITHOST}/${REPONAME}.git HEAD:refs/heads/${BRANCH}
